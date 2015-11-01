@@ -8,12 +8,12 @@
 
   "repository": {
     "type": "git",
-    "url": "git@github.com/vithar/marked-heading-anchors.git"
+    "url": "git@github.com/vithar/marked-renderer-heading-anchors.git"
   },
   "bugs": {
-    "url": "https://github.com/vithar/marked-heading-anchors/issues"
+    "url": "https://github.com/vithar/marked-renderer-heading-anchors/issues"
   },
-  "homepage": "https://github.com/vithar/marked-heading-anchors/",
+  "homepage": "https://github.com/vithar/marked-renderer-heading-anchors/",
   "keywords": [
     "markdown",
     "marked",
