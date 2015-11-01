@@ -5,7 +5,7 @@
 //      'anchor1': 1
 //      'anchor2': 2 // there are two the same anchors used on a page, we will add '-2' suffix to second
 // }
-var anchors = {};
+// var anchors = {};
 
 module.exports = function(text, level) {
     // looking for {#anchor} in heading
@@ -23,12 +23,14 @@ module.exports = function(text, level) {
         anchor = text.toLowerCase().replace(/[ .,:!#]+/g, '-').replace(/-$/, '');
     }
 
+    // TODO: process anchors duplicates
+/*
     if (anchors.hasOwnProperty(anchor)) {
         anchor += '-' + anchors[anchor]++;
     } else {
         anchors[anchor] = 1;
     }
-
+*/
     // TODO: class for hN anf hN > a
     return '<h' + level + ' id="' + anchor + '"><a anchor="#' + anchor + '"></a>' + text + '</h' + level + '>';
 }
