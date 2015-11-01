@@ -31,6 +31,10 @@ module.exports = function(text, level) {
         anchors[anchor] = 1;
     }
 */
-    // TODO: class for hN anf hN > a
-    return '<h' + level + ' id="' + anchor + '"><a anchor="#' + anchor + '"></a>' + text + '</h' + level + '>';
+    var options = this.options,
+        headingClass = options.headingClassName && ' class="' + options.headingClassName + level + '"',
+        headingAnchorClass = options.headingAnchorClassName && ' class="' + options.headingAnchorClassName + '"';
+
+    return '<h' + level + headingClass + ' id="' + anchor + '">' +
+        '<a href="#' + anchor + '"' + headingAnchorClass + '></a>' + text + '</h' + level + '>';
 }
