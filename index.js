@@ -20,14 +20,7 @@ module.exports = function(text, level) {
         anchor = anchorInText[3];
     } else {
         // if {#anchor} not found — constructing automatic anchor from the text
-        anchor = text.replace(/[ .,:!#]+/g, '-').replace(/-$/, '');
-
-        var re = /[A-Z]/;
-        for (var i = 0; i < anchor.length; i++) {
-            if (re.test(anchor[i])) {
-                anchor[i] = anchor[i].toLowerCase();
-            }
-        }
+        anchor = text.replace(/[ .,:!#]+/g, '-').replace(/-$/, '').replace(/([A-Z])+/g, function(s) { return s.toLowerCase() });
     }
 
     // TODO: process anchors duplicates
