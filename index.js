@@ -1,5 +1,8 @@
 'use strict';
 
+var GithubSlugger = require('github-slugger'),
+    slugger = new GithubSlugger();
+
 // Store used anchors here
 // {
 //      'anchor1': 1
@@ -20,7 +23,8 @@ module.exports = function(text, level) {
         anchor = anchorInText[3];
     } else {
         // if {#anchor} not found — constructing automatic anchor from the text
-        anchor = text.replace(/[ .,:!#]+/g, '-').replace(/[-\?]*$/, '').replace(/([A-Z])+/g, function(s) { return s.toLowerCase() });
+        // anchor = text.replace(/[ .,:!#]+/g, '-').replace(/[-\?]*$/, '').replace(/([A-Z])+/g, function(s) { return s.toLowerCase() });
+        anchor = slugger.slug(text);
     }
 
     // TODO: process anchors duplicates
